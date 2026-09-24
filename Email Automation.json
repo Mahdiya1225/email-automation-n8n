@@ -1,0 +1,157 @@
+{
+  "name": "Email Automation",
+  "nodes": [
+    {
+      "parameters": {
+        "pollTimes": {
+          "item": [
+            {
+              "mode": "everyMinute"
+            }
+          ]
+        },
+        "documentId": {
+          "__rl": true,
+          "value": "1iXhWEX7wCzRVAnDACEVcdOqNOeRi0oSm4wI4MTL2-9o",
+          "mode": "list",
+          "cachedResultName": "Bounce Mail 2",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1iXhWEX7wCzRVAnDACEVcdOqNOeRi0oSm4wI4MTL2-9o/edit?usp=drivesdk"
+        },
+        "sheetName": {
+          "__rl": true,
+          "value": "gid=0",
+          "mode": "list",
+          "cachedResultName": "Sheet1",
+          "cachedResultUrl": "https://docs.google.com/spreadsheets/d/1iXhWEX7wCzRVAnDACEVcdOqNOeRi0oSm4wI4MTL2-9o/edit#gid=0"
+        },
+        "event": "rowAdded",
+        "options": {}
+      },
+      "type": "n8n-nodes-base.googleSheetsTrigger",
+      "typeVersion": 1,
+      "position": [
+        0,
+        0
+      ],
+      "id": "a2d2b5eb-695d-4806-9ed5-f1834fa9eea5",
+      "name": "Google Sheets Trigger",
+      "credentials": {
+        "googleSheetsTriggerOAuth2Api": {
+          "id": "vMut7p86ITH2jndK",
+          "name": "Google Sheets Trigger account 3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "sendTo": "={{ $json['Varsity Mail'] }}",
+        "subject": "Welcome to the Data Science Club",
+        "message": "=<div style=\"font-family: Arial, Helvetica, sans-serif; font-size: 15px; line-height: 1.7; color: #333333; max-width: 700px;\">    <!-- Logo -->    <div style=\"margin-bottom: 25px;\">     <img src=\"https://drive.google.com/uc?export=view&id=1I7tb_vFR2wgtjnJxpQqGpKHpliX-tpEA\"          alt=\"Data Science Club\"          style=\"width: 130px; height: auto; display: block;\">   </div>    <!-- Greeting -->    <p>Dear <strong>{{ $json.Name }}</strong>,</p>    <p><strong>Welcome To Data Science Club.</strong></p>    <p>     We are thrilled to have you join our club! On behalf of the entire team,     we would like to extend a warm welcome to you. We are excited to have you     be a part of our community and look forward to the contributions you will make.   </p>    <p>     Your Club Membership ID:     <strong>{{ $json['DS ID'] }}</strong>   </p>    <p>     As a new member, you will have access to a wide range of resources and     opportunities to get involved in club activities. We encourage you to attend     our events to meet other members, learn about our mission and goals, and get     involved in initiatives that interest you.   </p>    <p>     We also invite you to join our club's online platforms, where you can stay     informed about upcoming events and connect with other members.     You can access them through the links below:   </p>    <!-- Social Links -->    <p>     <strong>Data Science Club - DIU:</strong><br>     <a href=\"https://www.facebook.com/dsc.diu\" style=\"color:#1877F2;\">       Facebook     </a>   </p>    <p>     <strong>Telegram:</strong><br>     <a href=\"https://t.me/+KRZRhmlS8fJiOTk1\" style=\"color:#229ED9;\">       Join our Telegram Channel     </a>   </p>    <p>     <strong>LinkedIn:</strong><br>     <a href=\"https://www.linkedin.com/company/diu-data-science-club/\" style=\"color:#0A66C2;\">       Data Science Club LinkedIn     </a>   </p>    <p>     <strong>Data Science Lab:</strong><br>     <a href=\"https://www.facebook.com/DIUDSL\" style=\"color:#1877F2;\">       Facebook     </a>   </p>    <p>     <strong>Data Science Lab LinkedIn:</strong><br>     <a href=\"https://www.linkedin.com/company/data-science-lab-diu/\" style=\"color:#0A66C2;\">       LinkedIn     </a>   </p>    <!-- ID Card Form -->    <p>     Also, please fill out the following form for your Club ID Card:   </p>    <p>     <a href=\"https://forms.gle/qEtUNYwMWz5E9gCb6\"        style=\"color:#0A66C2; font-weight:bold;\">       Club ID Card Form     </a>   </p>    <p>     Please don't hesitate to reach out to any of the board members or advisors     if you have any questions or need assistance. We are here to help you make     the most of your membership.   </p>    <p>     Once again, welcome to our club, and we look forward to working with you.   </p>    <p>     For any queries or assistance, please visit     <strong>Lab 601, AB4.</strong>   </p>    <!-- Closing -->    <p style=\"margin-top: 25px;\">     <strong>Best Wishes</strong><br>     Data Science Club<br>     Daffodil International University   </p>  </div>",
+        "options": {
+          "appendAttribution": false
+        }
+      },
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.2,
+      "position": [
+        224,
+        0
+      ],
+      "id": "5a2cbf51-bb7c-4de5-9116-10d3cb36e733",
+      "name": "Send a message",
+      "webhookId": "3811e420-ec60-47fe-8bc8-244ef283b500",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "Fz5U20u1C643QqfB",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "options": {}
+      },
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 3,
+      "position": [
+        448,
+        0
+      ],
+      "id": "921e6969-abde-4c4b-ae1c-f6a473063226",
+      "name": "Loop Over Items"
+    },
+    {
+      "parameters": {},
+      "type": "n8n-nodes-base.noOp",
+      "name": "Replace Me",
+      "typeVersion": 1,
+      "position": [
+        672,
+        208
+      ],
+      "id": "17aff16a-fb84-4540-911a-15d919da55e0",
+      "placeholder": true
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "Google Sheets Trigger": {
+      "main": [
+        [
+          {
+            "node": "Send a message",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Send a message": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Loop Over Items": {
+      "main": [
+        [],
+        [
+          {
+            "node": "Replace Me",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Replace Me": {
+      "main": [
+        [
+          {
+            "node": "Loop Over Items",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "binaryMode": "separate"
+  },
+  "versionId": "5bb78157-fe5f-4e43-9463-55a2cbf01021",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "836e56371266db7611c7befed2e790604446e6f2fe409aa620be56e46f6d57f7"
+  },
+  "nodeGroups": [],
+  "id": "p57NvikUtBOTuivI",
+  "tags": []
+}
