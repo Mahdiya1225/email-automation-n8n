@@ -45,6 +45,7 @@ n8n	Workflow automation
 Google Sheets	Data source
 Gmail	Email delivery
 JSON	Workflow export/import
+
 📂 Repository Structure
 email-automation-n8n/
 │
@@ -55,6 +56,7 @@ email-automation-n8n/
 │
 └── screenshots/
     └── workflow-preview.png
+
 🔄 How It Works
 1. Google Sheets Trigger
 
@@ -250,9 +252,11 @@ Record Error
 Update Google Sheet
      ↓
 Notify Administrator
+
 ## 📸 Workflow Preview
 
 ![n8n Email Automation Workflow](screenshots/workflow-preview.png)
+
 🗺️ Roadmap
  Add duplicate email protection
  Add email sending delay
@@ -262,6 +266,7 @@ Notify Administrator
  Add automatic follow-up emails
  Add email statistics
  Improve error handling
+
 👨‍💻 Author
 
 Mahdiya1225
