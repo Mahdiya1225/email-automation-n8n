@@ -250,11 +250,9 @@ Record Error
 Update Google Sheet
      ↓
 Notify Administrator
-📸 Workflow Preview
+## 📸 Workflow Preview
 
-A visual preview of the n8n workflow is available in:
-
-screenshots/workflow-preview.png
+![n8n Email Automation Workflow](screenshots/workflow-preview.png)
 🗺️ Roadmap
  Add duplicate email protection
  Add email sending delay
